@@ -1,0 +1,22 @@
+邀请函修复提速版
+
+修复内容：
+使用最新的国贸底图.png、国欧底图.png；分别校准姓名位置，解决国贸姓名叠字；首次预览使用小图，保存时读取高清原图。页面文件使用新版本名称，避免旧缓存造成错版。
+
+上传到当前 GitHub Pages：
+1. 解压这个压缩包，得到 docs 文件夹。
+2. 打开 https://github.com/Lilrain-hub/Rain-web-publish/upload/main
+3. 拖入整个 docs 文件夹（不要上传 ZIP 文件本身）。
+4. 等待文件上传结束，点击 Commit changes，并确认直接提交到 main 分支。
+5. 等待仓库 Actions 中 pages build and deployment 完成。
+6. 打开 https://lilrain-hub.github.io/Rain-web-publish/?v=3 检查。
+
+Pages 仍使用 main 分支 /docs 文件夹，无需重新配置。
+不要只上传两张底图；本次的网页、位置配置与图片需要一起更新。
+
+测试情况：
+已用真实 Canvas 生成并检查两种模式的图片，姓名区域外原图像素保持不变，中文输入、空值、长名称、模式切换以及模拟手机保存通过。未完成真实浏览器和手机的交互测试。
+电脑导出3505×7792，触屏导出1842×4096。
+
+其他静态托管平台：
+将 docs 文件夹里的内容作为网站根目录上传，让 index.html 位于网站根目录。网站不依赖后台服务或ChatGPT登录。
