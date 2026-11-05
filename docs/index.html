@@ -7,7 +7,7 @@
   <meta name="description" content="填写受邀人或公司名称，预览并保存专属邀请函。">
   <title>邀请函生成器 · 国欧物流 / 国贸集团</title>
   <link rel="icon" type="image/svg+xml" href="./assets/icon.svg">
-  <link rel="stylesheet" href="./style-v3.css">
+  <link rel="stylesheet" href="./style-v4.css">
 </head>
 <body>
   <div class="page">
@@ -38,9 +38,9 @@
           <p id="field-hint" class="field-hint">名称会自动显示在右侧邀请函中</p>
           <button id="save-button" type="submit" disabled>
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 15v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>保存邀请函</span>
+            <span id="save-label">生成并预览邀请函</span>
           </button>
-          <p class="save-note">高清 PNG 图片 · 可保存后直接发送</p>
+          <p class="save-note">完整长图预览 · 支持 PNG，必要时使用 JPEG</p>
           <p id="status" class="status" role="status" aria-live="polite"></p>
         </form>
 
@@ -56,11 +56,20 @@
     <footer><span id="issuer-footer">国欧物流</span><span>诚邀莅临 · 共启新程</span></footer>
   </div>
 
-  <dialog id="save-dialog" aria-labelledby="save-title">
-    <div class="dialog-header"><div><h2 id="save-title">邀请函已生成</h2><p>长按下方图片，选择「保存图片」</p></div><button id="close-dialog" type="button" aria-label="关闭">×</button></div>
-    <img id="save-image" alt="已生成的专属邀请函，可长按保存">
+  <dialog id="save-dialog" aria-labelledby="save-title" aria-modal="true" hidden>
+    <div class="dialog-header"><div><h2 id="save-title">完整邀请函预览</h2><p id="result-meta"></p></div><button id="close-dialog" type="button" aria-label="关闭">×</button></div>
+    <p id="save-instructions" class="save-instructions"></p>
+    <div class="result-actions">
+      <button id="share-image" type="button" hidden>系统分享／保存</button>
+      <button id="download-image" type="button">下载图片</button>
+      <a id="open-full" target="_blank" rel="noopener">打开完整图片</a>
+    </div>
+    <p id="dialog-status" class="dialog-status" role="status" aria-live="polite"></p>
+    <img id="save-image" alt="完整邀请函" draggable="false">
+    <button id="retry-export" type="button" class="retry-export">重新生成</button>
   </dialog>
   <script src="./templates-v3.js" defer></script>
-  <script src="./app-v3.js" defer></script>
+  <script src="./export-v4.js" defer></script>
+  <script src="./app-v4.js" defer></script>
 </body>
 </html>
